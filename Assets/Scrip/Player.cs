@@ -10,7 +10,6 @@ public class Player : MonoBehaviour
     int numero_Saltos;
     int fuerza_Salto = 5;
     private bool isHurting = false;
-    private bool isAttack = false;
     public float fireballSpeed = 7f;
     void Start()
     {
@@ -93,12 +92,10 @@ public class Player : MonoBehaviour
     }
     private IEnumerator DisableAttack()
     {
-        isAttack = true;
         anim.SetBool("Attack", true);
         yield return new WaitForSeconds(0.9f);
         Instantiate(FireBallPrefab, transform.position, quaternion.identity);
         anim.SetBool("Attack", false);
-        isAttack = false;
     }
 
 }

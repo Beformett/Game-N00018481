@@ -205,7 +205,7 @@ AnimatorStateMachine:
     m_Position: {x: 760, y: 150, z: 0}
   - serializedVersion: 1
     m_State: {fileID: -8901894271595330012}
-    m_Position: {x: 770, y: 0, z: 0}
+    m_Position: {x: 850, y: 40, z: 0}
   - serializedVersion: 1
     m_State: {fileID: 1397567844978244381}
     m_Position: {x: 410, y: -80, z: 0}
@@ -261,19 +261,7 @@ AnimatorController:
   m_Name: PersonajeQuieto_0
   serializedVersion: 5
   m_AnimatorParameters:
-  - m_Name: Walk
-    m_Type: 4
-    m_DefaultFloat: 0
-    m_DefaultInt: 0
-    m_DefaultBool: 0
-    m_Controller: {fileID: 9100000}
   - m_Name: Jump
-    m_Type: 4
-    m_DefaultFloat: 0
-    m_DefaultInt: 0
-    m_DefaultBool: 0
-    m_Controller: {fileID: 9100000}
-  - m_Name: Attack
     m_Type: 4
     m_DefaultFloat: 0
     m_DefaultInt: 0
@@ -286,6 +274,18 @@ AnimatorController:
     m_DefaultBool: 0
     m_Controller: {fileID: 9100000}
   - m_Name: Hurt
+    m_Type: 4
+    m_DefaultFloat: 0
+    m_DefaultInt: 0
+    m_DefaultBool: 0
+    m_Controller: {fileID: 9100000}
+  - m_Name: Attack
+    m_Type: 4
+    m_DefaultFloat: 0
+    m_DefaultInt: 0
+    m_DefaultBool: 0
+    m_Controller: {fileID: 9100000}
+  - m_Name: Walk
     m_Type: 4
     m_DefaultFloat: 0
     m_DefaultInt: 0
