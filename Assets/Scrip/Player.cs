@@ -1,6 +1,8 @@
 using UnityEngine;
 using System.Collections;
 using Unity.Mathematics;
+using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 public class Player : MonoBehaviour
 {
     public GameObject FireBallPrefab;
@@ -11,11 +13,17 @@ public class Player : MonoBehaviour
     int fuerza_Salto = 5;
     private bool isHurting = false;
     public float fireballSpeed = 7f;
+    public int vida = 3;
+    public Text vidaTexto;
+    public int Enemigos = 0;
+    public Text enemigoTexto;
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
         anim = GetComponent<Animator>();
         sr = GetComponent<SpriteRenderer>();
+        vidaTexto.text = "Vida: " + vida.ToString();
+        enemigoTexto.text = "Enemigos: " + Enemigos.ToString();
     }
 
     // Update is called once per frame
@@ -24,6 +32,14 @@ public class Player : MonoBehaviour
         SetupCaminar();
         SetupSaltar();
         SetupAtacar();
+    }
+    void ActualizarVidaTexto()
+    {
+        vidaTexto.text = "Vida: " + vida.ToString();
+    }
+    void ActualizarEnemigoTexto()
+    {
+        enemigoTexto.text = "Enemigos: " + Enemigos.ToString();
     }
 
     void OnCollisionEnter2D(Collision2D collision)
@@ -39,6 +55,22 @@ public class Player : MonoBehaviour
             Debug.Log("Estoy chocando");
             StartCoroutine(DisableHurt());
         }
+        if (collision.gameObject.CompareTag("Enemi"))
+        {
+            vida--;
+            ActualizarVidaTexto();
+
+            if (vida <= 0)
+            {
+                Debug.Log("Jugador muerto");
+                SceneManager.LoadScene("1");
+            }
+        }
+    }
+    public void SumarEnemigo()
+    {
+        Enemigos++;
+        ActualizarEnemigoTexto();
     }
     private IEnumerator DisableHurt()
     {

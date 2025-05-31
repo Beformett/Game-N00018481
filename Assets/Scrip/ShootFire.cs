@@ -15,4 +15,11 @@ public class ShootFire : MonoBehaviour
     {
         rb.linearVelocityX = 10f;
     }
+    void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.CompareTag("Enemi"))
+        {
+            Destroy(gameObject);
+        }
+    }
 }
